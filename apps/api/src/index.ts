@@ -1,6 +1,8 @@
 import { serve } from "@hono/node-server";
 import { logger } from "@pulse/shared";
 import { Hono } from "hono";
+import { serve as inngestServe } from "inngest/hono";
+import { inngest, inngestFunctions } from "./inngest/index.js";
 import { errorMiddleware } from "./middleware/error.js";
 import { initSentry } from "./middleware/sentry.js";
 import { healthRoute } from "./routes/health.js";
@@ -14,6 +16,13 @@ app.use("*", errorMiddleware);
 app.route("/", healthRoute);
 app.route("/", clerkWebhookRoute);
 app.route("/", waitlistRoute);
+
+app.on(["GET", "POST", "PUT"], "/inngest", (c) =>
+  inngestServe({
+    client: inngest,
+    functions: inngestFunctions,
+  })(c),
+);
 
 const port = Number(process.env.API_PORT ?? 3001);
 serve({ fetch: app.fetch, port }, (info) => {

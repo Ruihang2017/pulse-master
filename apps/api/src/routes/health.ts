@@ -1,6 +1,6 @@
 import { Hono } from "hono";
-import { sql } from "drizzle-orm";
 import { getDb } from "@pulse/db/client";
+import { sql } from "@pulse/db";
 
 export const healthRoute = new Hono();
 

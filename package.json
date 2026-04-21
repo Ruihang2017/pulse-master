@@ -10,6 +10,7 @@
   },
   "scripts": {
     "dev": "turbo run dev --parallel",
+    "dev:inngest": "pnpm dlx inngest-cli@latest dev -u http://localhost:3001/inngest",
     "build": "turbo run build",
     "test": "turbo run test",
     "lint": "turbo run lint",

@@ -1,7 +1,7 @@
 import { Hono } from "hono";
-import { eq, sql } from "drizzle-orm";
 import { getDb } from "@pulse/db/client";
 import { user } from "@pulse/db/schema";
+import { eq, sql } from "@pulse/db";
 import { logger, makeClerkAdapter, type ClerkAdapter } from "@pulse/shared";
 
 export function makeClerkWebhookRoute(clerk: ClerkAdapter) {
