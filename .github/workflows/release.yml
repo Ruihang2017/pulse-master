@@ -1,0 +1,35 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  approve:
+    runs-on: ubuntu-latest
+    environment: production  # requires a reviewer on the GitHub "production" environment
+    steps:
+      - run: echo "Release ${{ github.ref_name }} approved."
+
+  deploy-api:
+    needs: approve
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # TODO (cloud bring-up): railway up --service pulse-api --environment production
+      - run: echo "Placeholder — wire Railway CLI when project exists."
+
+  deploy-web:
+    needs: approve
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # TODO (cloud bring-up): vercel deploy --prod --token=$VERCEL_TOKEN
+      - run: echo "Placeholder — wire Vercel CLI when project exists."
+
+  smoke:
+    needs: [deploy-api, deploy-web]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Placeholder smoke — will curl /health and / once URLs exist."
