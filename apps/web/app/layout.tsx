@@ -1,6 +1,7 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import "./globals.css";
+import { PostHogProvider } from "./posthog-provider";
 
 export const metadata: Metadata = {
   title: "Pulse",
@@ -15,14 +16,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   if (!hasClerk) {
     return (
       <html lang="en">
-        <body>{children}</body>
+        <body>
+          <PostHogProvider>{children}</PostHogProvider>
+        </body>
       </html>
     );
   }
   return (
     <ClerkProvider>
       <html lang="en">
-        <body>{children}</body>
+        <body>
+          <PostHogProvider>{children}</PostHogProvider>
+        </body>
       </html>
     </ClerkProvider>
   );
