@@ -78,6 +78,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@clerk/nextjs':
+        specifier: ^7.2.3
+        version: 7.2.3(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@pulse/ai':
         specifier: workspace:*
         version: link:../../packages/ai
@@ -96,6 +99,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      svix:
+        specifier: ^1.91.1
+        version: 1.91.1
     devDependencies:
       '@playwright/test':
         specifier: ^1.48.1
@@ -206,6 +212,37 @@ packages:
 
   '@bufbuild/protobuf@2.11.0':
     resolution: {integrity: sha512-sBXGT13cpmPR5BMgHE6UEEfEaShh5Ror6rfN3yEK5si7QVrtZg8LEPQb0VVhiLRUslD2yLnXtnRzG035J/mZXQ==}
+
+  '@clerk/backend@3.2.13':
+    resolution: {integrity: sha512-E4ir94gs9Cxh+v20SGVLXblb0coVUd2La5o1Lmz7olNOBimMEsZ7T6MpGFNJveEH1sQ+HhSf1a1uLm9pMiK/tg==}
+    engines: {node: '>=20.9.0'}
+
+  '@clerk/nextjs@7.2.3':
+    resolution: {integrity: sha512-/+SBW09/Dz7pvIabzSKssHTdoGZn2n/k9u/VhIra700gfsymCAR57NLn7ztW6zjPdw5VMILOMTLqzyqxaal3og==}
+    engines: {node: '>=20.9.0'}
+    peerDependencies:
+      next: ^15.2.8 || ^15.3.8 || ^15.4.10 || ^15.5.9 || ^15.6.0-0 || ^16.0.10 || ^16.1.0-0
+      react: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
+      react-dom: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
+
+  '@clerk/react@6.4.2':
+    resolution: {integrity: sha512-l43pon5wcM0n4e3gnRP7MWdvAXAa3M7BOF6aeNwEuITxgy6MU6ypej9tPeGmXxPicL/Hd6E/VRgiEipEKDqyCQ==}
+    engines: {node: '>=20.9.0'}
+    peerDependencies:
+      react: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
+      react-dom: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
+
+  '@clerk/shared@4.8.2':
+    resolution: {integrity: sha512-kBFDNeLdiNZkOHavTkOB00NMuqsmOGgVtDlzCS0/yivxsCUZXk3AT6+UsTfeSBGV7QD80YxjeFMNSrpqnSv4Gg==}
+    engines: {node: '>=20.9.0'}
+    peerDependencies:
+      react: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
+      react-dom: ^18.0.0 || ~19.0.3 || ~19.1.4 || ~19.2.3 || ~19.3.0-0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
 
   '@commitlint/cli@19.8.1':
     resolution: {integrity: sha512-LXUdNIkspyxrlV6VDHWBmCZRtkEVRpBKxi2Gtw3J54cGWhLCTouVD/Q6ZSaSvd2YaDObWK8mDjrz3TIKtaQMAA==}
@@ -2012,6 +2049,9 @@ packages:
       '@opentelemetry/sdk-trace-base': ^1.30.1 || ^2.1.0
       '@opentelemetry/semantic-conventions': ^1.39.0
 
+  '@stablelib/base64@1.0.1':
+    resolution: {integrity: sha512-1bnPQqSxSuc3Ii6MhBysoWCg58j97aUjuCSZrGSmDxNqtytIi0k8utUenAwTZN4V5mXXYGsVUI9zeBqy+jBOSQ==}
+
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
 
@@ -2105,6 +2145,9 @@ packages:
 
   '@tailwindcss/postcss@4.2.4':
     resolution: {integrity: sha512-wgAVj6nUWAolAu8YFvzT2cTBIElWHkjZwFYovF+xsqKsW2ADxM/X2opxj5NsF/qVccAOjRNe8X2IdPzMsWyHTg==}
+
+  '@tanstack/query-core@5.90.16':
+    resolution: {integrity: sha512-MvtWckSVufs/ja463/K4PyJeqT+HMlJWtw6PrCpywznd2NSgO3m4KwO9RqbFqGg6iDE8vVMFWMeQI4Io3eEYww==}
 
   '@testcontainers/postgresql@11.14.0':
     resolution: {integrity: sha512-wYbJn8GRTj8qfqzfVubxioYWlHJU/ImIjuzPwyy9C5Qfo6g3GLduPZAj+BifvqTZjgT3gd4gFVLCPhBji7dc1w==}
@@ -2859,6 +2902,10 @@ packages:
     resolution: {integrity: sha512-8QmQKqEASLd5nx0U1B1okLElbUuuttJ/AnYmRXbbbGDWh6uS208EjD4Xqq/I9wK7u0v6O08XhTWnt5XtEbR6Dg==}
     engines: {node: '>= 0.4'}
 
+  dequal@2.0.3:
+    resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
+    engines: {node: '>=6'}
+
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
     engines: {node: '>=8'}
@@ -3245,6 +3292,9 @@ packages:
   fast-safe-stringify@2.1.1:
     resolution: {integrity: sha512-W+KJc2dmILlPplD/H4K9l9LcAHAfPtP6BY84uVLXQ6Evcz9Lcg33Y2z1IVblT6xdY54PXYVHEv+0Wpq8Io6zkA==}
 
+  fast-sha256@1.3.0:
+    resolution: {integrity: sha512-n11RGP/lrWEFI/bWdygLxhI+pVeo1ZYIVwvvPkW7azl/rOy+F3HYRZ2K5zeE9mmkhQppyv9sQFx0JM9UabnpPQ==}
+
   fast-uri@3.1.0:
     resolution: {integrity: sha512-iPeeDKJSWf4IEOasVVrknXpaBV0IApz/gp7S2bb7Z4Lljbl2MGJRqInZiUrQwV16cpzw/D3S5j5Julj/gT52AA==}
 
@@ -3387,6 +3437,9 @@ packages:
   glob-parent@6.0.2:
     resolution: {integrity: sha512-XxwI8EOhVQgWp6iDL+3b0r86f4d6AX6zSU55HfB4ydCEuXLXc5FcYeOu+nnGftS4TEju/11rt4KJPTMgbfmv4A==}
     engines: {node: '>=10.13.0'}
+
+  glob-to-regexp@0.4.1:
+    resolution: {integrity: sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==}
 
   glob@10.5.0:
     resolution: {integrity: sha512-DfXN8DfhJ7NH3Oe7cFmu3NCu1wKbkReJ8TorzSAFbSKrlNaQSKfIzqYqVY8zlbs2NLBbWpRiU52GX2PbaBVNkg==}
@@ -3724,6 +3777,10 @@ packages:
 
   js-base64@3.7.8:
     resolution: {integrity: sha512-hNngCeKxIUQiEUN3GPJOkz4wF/YvdUdbNL9hsBcMQTkKzboD7T/q3OYOuuPZLUE6dBxSGpwhk5mwuDud7JVAow==}
+
+  js-cookie@3.0.5:
+    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
+    engines: {node: '>=14'}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -4459,6 +4516,9 @@ packages:
     resolution: {integrity: sha512-6a6dNqipzbCPlTFgztfNP2oG+IGcflMe/01zSzGrQcxGMKbIjOemBBD85pH92klWaJavAUWxAh9Z0aU28zxW6A==}
     deprecated: Rolling release, please update to 0.2.0
 
+  server-only@0.0.1:
+    resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
+
   set-function-length@1.2.2:
     resolution: {integrity: sha512-pgRc4hJ4/sNjWCSS9AmnS40x3bNMDTknHgL5UaMBTMyJnU90EgWh1Rz+MC9eFu4BuN/UwZjKQuY/1v3rM7HMfg==}
     engines: {node: '>= 0.4'}
@@ -4550,6 +4610,9 @@ packages:
 
   stackback@0.0.2:
     resolution: {integrity: sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw==}
+
+  standardwebhooks@1.0.0:
+    resolution: {integrity: sha512-BbHGOQK9olHPMvQNHWul6MYlrRTAOKn03rOe4A8O3CLWhNf4YHBqq2HJKKC+sfqpxiBY52pNeesD6jIiLDz8jg==}
 
   std-env@3.10.0:
     resolution: {integrity: sha512-5GS12FdOZNliM5mAOxFRg7Ir0pWz8MdpYm6AY6VPkGpbA7ZzmbzNcBJQ0GPvvyWgcY7QAhCgf9Uy89I03faLkg==}
@@ -4646,6 +4709,9 @@ packages:
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  svix@1.91.1:
+    resolution: {integrity: sha512-Vn8nuer+o3NhGLHJNW3CPxls3te8YLr0xC3ImfcksG7taC/A+o8+PcVAK4sj1LJs4kM9HdmkXBnS3WU4E0YHHA==}
 
   tailwindcss@4.2.4:
     resolution: {integrity: sha512-HhKppgO81FQof5m6TEnuBWCZGgfRAWbaeOaGT00KOy/Pf/j6oUihdvBpA7ltCeAvZpFhW3j0PTclkxsd4IXYDA==}
@@ -4996,6 +5062,44 @@ snapshots:
   '@balena/dockerignore@1.0.2': {}
 
   '@bufbuild/protobuf@2.11.0': {}
+
+  '@clerk/backend@3.2.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@clerk/shared': 4.8.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      standardwebhooks: 1.0.0
+      tslib: 2.8.1
+    transitivePeerDependencies:
+      - react
+      - react-dom
+
+  '@clerk/nextjs@7.2.3(next@15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@clerk/backend': 3.2.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@clerk/react': 6.4.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@clerk/shared': 4.8.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 15.5.15(@opentelemetry/api@1.9.1)(@playwright/test@1.59.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      server-only: 0.0.1
+      tslib: 2.8.1
+
+  '@clerk/react@6.4.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@clerk/shared': 4.8.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      tslib: 2.8.1
+
+  '@clerk/shared@4.8.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@tanstack/query-core': 5.90.16
+      dequal: 2.0.3
+      glob-to-regexp: 0.4.1
+      js-cookie: 3.0.5
+      std-env: 3.10.0
+    optionalDependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@commitlint/cli@19.8.1(@types/node@22.19.17)(typescript@5.9.3)':
     dependencies:
@@ -6778,6 +6882,8 @@ snapshots:
       '@opentelemetry/semantic-conventions': 1.40.0
       '@sentry/core': 10.49.0
 
+  '@stablelib/base64@1.0.1': {}
+
   '@standard-schema/spec@1.1.0': {}
 
   '@swc/helpers@0.5.15':
@@ -6852,6 +6958,8 @@ snapshots:
       '@tailwindcss/oxide': 4.2.4
       postcss: 8.5.10
       tailwindcss: 4.2.4
+
+  '@tanstack/query-core@5.90.16': {}
 
   '@testcontainers/postgresql@11.14.0':
     dependencies:
@@ -7649,6 +7757,8 @@ snapshots:
       has-property-descriptors: 1.0.2
       object-keys: 1.1.1
 
+  dequal@2.0.3: {}
+
   detect-libc@2.1.2: {}
 
   docker-compose@1.4.2:
@@ -8208,6 +8318,8 @@ snapshots:
 
   fast-safe-stringify@2.1.1: {}
 
+  fast-sha256@1.3.0: {}
+
   fast-uri@3.1.0: {}
 
   fastq@1.20.1:
@@ -8357,6 +8469,8 @@ snapshots:
   glob-parent@6.0.2:
     dependencies:
       is-glob: 4.0.3
+
+  glob-to-regexp@0.4.1: {}
 
   glob@10.5.0:
     dependencies:
@@ -8686,6 +8800,8 @@ snapshots:
   joycon@3.1.1: {}
 
   js-base64@3.7.8: {}
+
+  js-cookie@3.0.5: {}
 
   js-tokens@4.0.0: {}
 
@@ -9453,6 +9569,8 @@ snapshots:
 
   serialize-error-cjs@0.1.4: {}
 
+  server-only@0.0.1: {}
+
   set-function-length@1.2.2:
     dependencies:
       define-data-property: 1.1.4
@@ -9591,6 +9709,11 @@ snapshots:
 
   stackback@0.0.2: {}
 
+  standardwebhooks@1.0.0:
+    dependencies:
+      '@stablelib/base64': 1.0.1
+      fast-sha256: 1.3.0
+
   std-env@3.10.0: {}
 
   stop-iteration-iterator@1.1.0:
@@ -9709,6 +9832,11 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  svix@1.91.1:
+    dependencies:
+      standardwebhooks: 1.0.0
+      uuid: 10.0.0
 
   tailwindcss@4.2.4: {}
 
