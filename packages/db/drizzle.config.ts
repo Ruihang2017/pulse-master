@@ -1,7 +1,7 @@
 import type { Config } from "drizzle-kit";
 
 export default {
-  schema: "./src/schema/index.ts",
+  schema: ["./src/schema/users.ts", "./src/schema/waitlist.ts", "./src/schema/pgvector-smoke.ts"],
   out: "./migrations",
   dialect: "postgresql",
   dbCredentials: {
