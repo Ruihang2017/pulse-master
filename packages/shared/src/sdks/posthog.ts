@@ -1,13 +1,28 @@
+export type PostHogEvent = string;
+export type PostHogProps = Record<string, unknown>;
+
 export interface PostHogAdapter {
-  capture: (event: string, props?: Record<string, unknown>) => void;
+  capture: (event: PostHogEvent, props?: PostHogProps) => void;
+  isFeatureEnabled: (flag: string) => boolean;
 }
 
-export function makePostHogAdapter(opts: { apiKey?: string; strict: boolean }): PostHogAdapter {
-  if (opts.apiKey) {
-    return { capture: (e, p) => console.log("[posthog:real-in-pass-2]", e, p) };
+export interface PostHogAdapterOpts {
+  apiKey?: string;
+  strict: boolean;
+  sink?: (event: PostHogEvent, props?: PostHogProps) => void;
+}
+
+export function makePostHogAdapter(opts: PostHogAdapterOpts): PostHogAdapter {
+  if (!opts.apiKey) {
+    if (opts.strict) throw new Error("POSTHOG_API_KEY is required in staging/prod");
+    return {
+      capture: () => undefined,
+      isFeatureEnabled: () => false,
+    };
   }
-  if (opts.strict) {
-    throw new Error("POSTHOG_API_KEY is required in staging/prod");
-  }
-  return { capture: () => undefined };
+  const emit = opts.sink ?? ((event, props) => console.log("[posthog]", event, props));
+  return {
+    capture: (event, props) => emit(event, props),
+    isFeatureEnabled: () => false,
+  };
 }
