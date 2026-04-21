@@ -14,9 +14,9 @@
     "test": "turbo run test",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
-    "db:generate": "pnpm --filter @pulse/db drizzle-kit generate",
-    "db:migrate": "pnpm --filter @pulse/db tsx src/migrate.ts",
-    "db:studio": "pnpm --filter @pulse/db drizzle-kit studio",
+    "db:generate": "pnpm --filter @pulse/db exec drizzle-kit generate",
+    "db:migrate": "pnpm --filter @pulse/db exec tsx src/migrate.ts",
+    "db:studio": "pnpm --filter @pulse/db exec drizzle-kit studio",
     "format": "prettier --write .",
     "prepare": "husky"
   },
