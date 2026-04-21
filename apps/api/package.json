@@ -18,7 +18,8 @@
     "@pulse/shared": "workspace:*",
     "@sentry/node": "^10.49.0",
     "drizzle-orm": "^0.35.3",
-    "hono": "^4.6.5"
+    "hono": "^4.6.5",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "tsx": "^4.19.2",
