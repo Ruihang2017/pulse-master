@@ -1,0 +1,33 @@
+{
+  "name": "pulse",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Pulse — personalised AI tech feed for engineers",
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9"
+  },
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "db:generate": "pnpm --filter @pulse/db drizzle-kit generate",
+    "db:migrate": "pnpm --filter @pulse/db tsx src/migrate.ts",
+    "db:studio": "pnpm --filter @pulse/db drizzle-kit studio",
+    "format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@types/node": "^22.7.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3",
+    "turbo": "^2.2.0",
+    "typescript": "^5.6.3"
+  }
+}
