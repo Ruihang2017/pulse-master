@@ -3,16 +3,20 @@ import pino from "pino";
 const PII_KEYS = new Set(["email", "clerk_id", "clerkId", "password", "token", "authorization"]);
 const BEARER_RE = /Bearer\s+[A-Za-z0-9._-]+/g;
 
-export function redactPii(input: unknown): unknown {
+export function redactPii<T>(input: T): T {
   if (input == null) return input;
-  if (typeof input === "string") return input.replace(BEARER_RE, "Bearer [REDACTED]");
-  if (Array.isArray(input)) return input.map(redactPii);
+  if (typeof input === "string") {
+    return input.replace(BEARER_RE, "Bearer [REDACTED]") as T;
+  }
+  if (Array.isArray(input)) {
+    return input.map((v) => redactPii(v)) as unknown as T;
+  }
   if (typeof input === "object") {
     const out: Record<string, unknown> = {};
     for (const [k, v] of Object.entries(input as Record<string, unknown>)) {
       out[k] = PII_KEYS.has(k) ? "[REDACTED]" : redactPii(v);
     }
-    return out;
+    return out as T;
   }
   return input;
 }
