@@ -16,6 +16,7 @@
     "@pulse/ai": "workspace:*",
     "@pulse/db": "workspace:*",
     "@pulse/shared": "workspace:*",
+    "drizzle-orm": "^0.35.3",
     "hono": "^4.6.5"
   },
   "devDependencies": {
